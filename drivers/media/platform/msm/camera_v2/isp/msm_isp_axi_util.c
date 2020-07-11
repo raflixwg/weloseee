@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /* Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
-=======
-/* Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
->>>>>>> 94a9d67216c9... Revert "msm: camera_v2: isp: handle frame drop due to scheduling latency"
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
