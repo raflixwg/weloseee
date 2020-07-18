@@ -1,7 +1,7 @@
 git branch -D \
-qk/20200711/ul \
-qk/20200711/l \
-qk/20200711/n
+qk/20200711/ul-rc \
+qk/20200711/l-rc \
+qk/20200711/n-rc
 upstream()
 {
     branch=$1
