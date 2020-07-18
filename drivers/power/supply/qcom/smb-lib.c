@@ -3458,13 +3458,13 @@ void asus_batt_RTC_work(struct work_struct *dat)
 #define ICL_3000mA	0x78
 #define ICL_4000mA	0xF8
 #define ASUS_MONITOR_CYCLE	60000
-#define TITAN_750K_MIN	675
-#define TITAN_750K_MAX	851
-#define TITAN_200K_MIN	306
-#define TITAN_200K_MAX	406
-#define VADC_THD_300MV	300
-#define VADC_THD_900MV	900
-#define VADC_THD_1000MV	1000
+#define TITAN_750K_MIN	776
+#define TITAN_750K_MAX	901
+#define TITAN_200K_MIN	775
+#define TITAN_200K_MAX	900
+#define VADC_THD_300MV	1000
+#define VADC_THD_900MV	1001
+#define VADC_THD_1000MV	1002
 
 void smblib_asus_monitor_start(struct smb_charger *chg, int time)
 {
