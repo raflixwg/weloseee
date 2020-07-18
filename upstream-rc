@@ -5,6 +5,7 @@ qk/20200711/n-rc
 upstream()
 {
     branch=$1
+    rm -rf drivers/staging/fw-api/hw
     git checkout $branch && git checkout -b ${branch}-rc && \
     git pull . rebase-20200711-upstream-rc --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200711-upstream-rc' into $branch"
     git checkout rebase-20200711
