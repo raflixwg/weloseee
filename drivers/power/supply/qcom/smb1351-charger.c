@@ -533,7 +533,7 @@ static int fast_chg_current[] = {
 };
 
 static int pre_chg_current[] = {
-	200, 300, 400, 500, 600, 700,
+	100, 200, 300, 400, 500, 600, 700, 800, 900, 1000
 };
 
 struct battery_status {
