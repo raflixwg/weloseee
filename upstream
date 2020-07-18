@@ -4,6 +4,7 @@ upstream()
     rm -rf drivers/staging/fw-api/hw
     git checkout $branch && \
     git pull . rebase-20200711 --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200711' into $branch"
+    git pull . rebase-20200711-pieqcacld --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200711-pieqcacld' into $branch"
     git pull . rebase-20200711-upstream --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200711-upstream' into $branch"
     git checkout rebase-20200711
 }
