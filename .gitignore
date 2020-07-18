@@ -124,8 +124,8 @@ android/configs/android-*.cfg
 !.circleci/*
 
 # ignore builder folder
-AnyKernel/*
-Getclang/*
-GetGcc/*
-GetGccB/*
-out/*
+AnyKernel
+Getclang
+GetGcc
+GetGccB
+out
