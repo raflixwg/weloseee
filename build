@@ -11,9 +11,9 @@ MakeZip(){
     else
         cd $AnykernelPath
         git reset --hard
-        git fetch origin master-begonia
-        git checkout master-begonia
-        git reset --hard origin/master-begonia
+        git fetch origin master
+        git checkout master
+        git reset --hard origin/master
         AnykernelPath=$(pwd)
     fi
     SpectrumPath=../Spectrum
