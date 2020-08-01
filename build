@@ -54,8 +54,8 @@ MAKE="./makeparallel"
 rm -rf ../../X01BD/out && \
 make -j$(($GetCore))  O=../../X01BD/out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
 make -j$(($GetCore))  O=../../X01BD/out \
-                            PATH="../../clang/proton-clang/bin:${PATH}" \
-                            LD_LIBRARY_PATH="../../clang/proton-clang/lib64:${LD_LIBRARY_PATH}" \
+                            PATH="../../clang/DragonTC-10.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gcc/arm-linux-androideabi-4.9/bin:${PATH}" \
+                            LD_LIBRARY_PATH="../../clang/DragonTC-10.0/lib64:${LD_LIBRARY_PATH}" \
                             CC="ccache clang" \
                             CROSS_COMPILE=aarch64-linux-android- \
                             CROSS_COMPILE_ARM32=arm-linux-androideabi- \
@@ -76,12 +76,12 @@ make -j$(($GetCore))  O=../../X01BD/out \
 [ -e ../../X01BD/out/arch/arm64/boot/Image.gz-dtb ] && MakeZip 'Q'
 
 git revert ecc5b3add2f2dc3c4a25f5da9550bff39847dd1b --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (ecc5b3add2f2dc3c4a25f5da9550bff39847dd1b)'
-make -j$(($GetCore)) O=../../X01BD/out clean mrproper  && \
+
 rm -rf ../../X01BD/out && \
 make -j$(($GetCore))  O=../../X01BD/out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
 make -j$(($GetCore))  O=../../X01BD/out 
-                            PATH="../../clang/proton-clang/bin:${PATH}" \
-                            LD_LIBRARY_PATH="../../clang/proton-clang/lib64:${LD_LIBRARY_PATH}" \
+                            PATH="../../clang/DragonTC-10.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gcc/arm-linux-androideabi-4.9/bin:${PATH}" \
+                            LD_LIBRARY_PATH="../../clang/DragonTC-10.0/lib64:${LD_LIBRARY_PATH}" \
                             CC="ccache clang" \
                             CROSS_COMPILE=aarch64-linux-android- \
                             CROSS_COMPILE_ARM32=arm-linux-androideabi- \
