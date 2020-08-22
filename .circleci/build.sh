@@ -33,8 +33,7 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 function zipping() {
     cd AnyKernel || exit 1
     zip -r9 ${TANGGAL}Fiency-noMi.zip *
-    cd
-    cd /root/project/fiency/kernel
+    cd ..
 }
 
 # Push kernel to channel
@@ -46,7 +45,6 @@ function push() {
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>XOBOD xixixi</b> |
-
-
+}
 zipping
 push
