@@ -3039,7 +3039,14 @@ static void binder_transaction(struct binder_proc *proc,
 			return_error_line = __LINE__;
 			goto err_dead_binder;
 		}
+<<<<<<< HEAD
 		e->to_node = target_node->debug_id;
+=======
+		if (WARN_ON(proc == target_proc)) {
+			return_error = BR_FAILED_REPLY;
+			goto err_invalid_target_handle;
+		}
+>>>>>>> a5a50d16be472768ac6cbf10e9fbdb5a644bb310
 		if (security_binder_transaction(proc->tsk,
 						target_proc->tsk) < 0) {
 			return_error = BR_FAILED_REPLY;
