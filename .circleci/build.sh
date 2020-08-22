@@ -57,10 +57,6 @@ cd ..
 echo "Cloning dependencies"
 git clone --depth=1 https://github.com/itswege/fiency_kernel -b  ameno ame
 cd ame
-git clone --depth=1 https://github.com/ZyCromerZ/DragonTC -b daily/10.0 clang
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 AnyKernel
-git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mirror gcc64
-git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -72,13 +68,13 @@ export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_BUILD_USER="itswege"
 export KBUILD_BUILD_HOST="circleci"
-export CROSS_COMPILE="/root/project/fiency/ame/gcc64/bin/aarch64-linux-android-"
-export CROSS_COMPILE_ARM32="/root/project/fiency/ame/gcc32/bin/arm-linux-androideabi-"
+export CROSS_COMPILE="/root/project/fiency/nomi/gcc64/bin/aarch64-linux-android-"
+export CROSS_COMPILE_ARM32="/root/project/fiency/nomi/gcc32/bin/arm-linux-androideabi-"
 
 make O=nomi ARCH=arm64 SUBARCH=arm64 X01BD_defconfig
 
 make -j$(nproc --all) O=nomi ARCH=arm64 \
-                        CC="/root/project/fiency/ame/clang/bin/clang" \
+                        CC="/root/project/fiency/nomi/clang/bin/clang" \
                         CLANG_TRIPLE="aarch64-linux-gnu-"
                         
 cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
@@ -111,10 +107,6 @@ cd ..
 echo "Cloning dependencies"
 git clone --depth=1 https://github.com/itswege/fiency_kernel -b  ame65 ame65
 cd ame65
-git clone --depth=1 https://github.com/ZyCromerZ/DragonTC -b daily/10.0 clang
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 AnyKernel
-git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mirror gcc64
-git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -126,13 +118,13 @@ export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_BUILD_USER="itswege"
 export KBUILD_BUILD_HOST="circleci"
-export CROSS_COMPILE="/root/project/fiency/ame65/gcc64/bin/aarch64-linux-android-"
-export CROSS_COMPILE_ARM32="/root/project/fiency/ame65/gcc32/bin/arm-linux-androideabi-"
+export CROSS_COMPILE="/root/project/fiency/nomi/gcc64/bin/aarch64-linux-android-"
+export CROSS_COMPILE_ARM32="/root/project/fiency/nomi/gcc32/bin/arm-linux-androideabi-"
 
 make O=nomi ARCH=arm64 SUBARCH=arm64 X01BD_defconfig
 
 make -j$(nproc --all) O=nomi ARCH=arm64 \
-                        CC="/root/project/fiency/ame65/clang/bin/clang" \
+                        CC="/root/project/fiency/nomi/clang/bin/clang" \
                         CLANG_TRIPLE="aarch64-linux-gnu-"
                         
 cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
