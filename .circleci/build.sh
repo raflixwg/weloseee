@@ -10,34 +10,29 @@ echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
-export CONFIG_PATH=$PWD/arch/arm64/configs/X01BD_defconfig
-PATH="${pwd}/clang/bin:${pwd}/gcc64/bin:${pwd}/gcc32/bin:${PATH}"
-export ARCH=arm64
-export KBUILD_BUILD_HOST=circleci
-export KBUILD_BUILD_USER="itswege"
-# Compile plox
-function compile() {
-    make -j$(nproc) O=out ARCH=arm64 X01BD_defconfig
-    make -j$(nproc) O=out \
-                    ARCH=arm64 \
-                    CC=clang \
-                    CLANG_TRIPLE=aarch64-linux-gnu- \
-                    CROSS_COMPILE=aarch64-linux-android- \
-                    CROSS_COMPILE_ARM32=arm-linux-androideabi-
+# Build nomi
+echo "Starting building noMi"
 
-    if ! [ -a "$IMAGE" ]; then
-        finerr
-        exit 1
-    fi
-    buildsucs
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
-}
+# Main Environment
+export ARCH=arm64
+export SUBARCH=arm64
+export KBUILD_BUILD_USER="itswege"
+export KBUILD_BUILD_HOST="circleci"
+export CROSS_COMPILE=${pwd}/gcc64/bin/aarch64-linux-android-
+export CROSS_COMPILE_ARM32=${pwd}/gcc32/bin/arm-linux-androideabi-
+
+make O=nomi ARCH=arm64 SUBARCH=arm64 X01BD_defconfig
+
+make -j$(nproc --all) O=nomi ARCH=arm64 \
+                        CC="${pwd}/clang/bin/clang" \
+                        CLANG_TRIPLE="aarch64-linux-gnu-"
+                        
+cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
     zip -r9 ${TANGGAL}Fiency-noMi.zip *
     cd .. 
 }
-compile
 zipping
 
