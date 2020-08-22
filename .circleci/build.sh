@@ -19,7 +19,7 @@ export SUBARCH=arm64
 export KBUILD_BUILD_USER="itswege"
 export KBUILD_BUILD_HOST="circleci"
 export CROSS_COMPILE="/root/project/fiency/nomi/gcc64/bin/aarch64-linux-android-"
-export CROSS_COMPILE_ARM32="/root/project/nomi/kernel/gcc32/bin/arm-linux-androideabi-"
+export CROSS_COMPILE_ARM32="/root/project/fiency/nomi/gcc32/bin/arm-linux-androideabi-"
 
 make O=nomi ARCH=arm64 SUBARCH=arm64 X01BD_defconfig
 
