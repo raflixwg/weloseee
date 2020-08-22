@@ -13,7 +13,7 @@ jobs:
            git clone https://github.com/akhilnarang/scripts && cd scripts && bash setup/android_build_env.sh && cd ..
            mkdir fiency
            cd fiency
-           wget https://raw.githubusercontent.com/itswege/fiency_kernel/circleci-project-setup/.circleci/build.sh
+           wget https://raw.githubusercontent.com/itswege/fiency_kernel/blob/circleci-project-setup/.circleci/build.sh
            source build.sh
 workflows:
   version: 2.1
