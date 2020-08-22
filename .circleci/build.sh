@@ -36,7 +36,7 @@ function zipping() {
     cd ..
 }
 
-# Push kernel to channel
+# Push kernel to Tele
 function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
