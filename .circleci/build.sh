@@ -18,13 +18,13 @@ export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_BUILD_USER="itswege"
 export KBUILD_BUILD_HOST="circleci"
-export CROSS_COMPILE=/root/project/fiency/kernel/gcc64/bin/aarch64-linux-android-
-export CROSS_COMPILE_ARM32=/root/project/fiency/kernel/gcc32/bin/arm-linux-androideabi-
+export CROSS_COMPILE="/root/project/fiency/kernel/gcc64/bin/aarch64-linux-android-"
+export CROSS_COMPILE_ARM32="/root/project/fiency/kernel/gcc32/bin/arm-linux-androideabi-"
 
 make O=nomi ARCH=arm64 SUBARCH=arm64 X01BD_defconfig
 
 make -j$(nproc --all) O=nomi ARCH=arm64 \
-                        CC="${/root/project/fiency/kernel/clang/bin/clang" \
+                        CC="/root/project/fiency/kernel/clang/bin/clang" \
                         CLANG_TRIPLE="aarch64-linux-gnu-"
                         
 cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
