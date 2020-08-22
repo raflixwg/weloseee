@@ -28,11 +28,25 @@ make -j$(nproc --all) O=nomi ARCH=arm64 \
                         CLANG_TRIPLE="aarch64-linux-gnu-"
                         
 cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
+
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
     zip -r9 ${TANGGAL}Fiency-noMi.zip *
-    cd .. 
+    cd
+    cd /root/project/fiency/kernel
 }
-zipping
 
+# Push kernel to channel
+function push() {
+    cd AnyKernel
+    ZIP=$(echo *.zip)
+    curl -F document=@$ZIP "https://api.telegram.org/bot1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE/sendDocument" \
+        -F chat_id="-1001450556997" \
+        -F "disable_web_page_preview=true" \
+        -F "parse_mode=html" \
+        -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>XOBOD xixixi</b> |
+
+
+zipping
+push
