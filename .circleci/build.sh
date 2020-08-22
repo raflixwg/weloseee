@@ -32,7 +32,7 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 $[{TANGGAL}]Fiency-noMi.zip *
+    zip -r9 [${TANGGAL}]Fiency-noMi.zip *
     cd ..
 }
 
