@@ -8,10 +8,10 @@ git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mi
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-TOKEN=$(1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE)
+TOKEN=$("1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE")
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
-CHAT=$(-1001450556997)
+CHAT=$("-1001450556997")
 export CONFIG_PATH=$PWD/arch/arm64/configs/X01BD_defconfig
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc64/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export ARCH=arm64
