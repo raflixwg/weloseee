@@ -8,7 +8,7 @@ git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mi
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-TANGGAL=$(date +"%F-%S")
+TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
 # Build nomi
 echo "Starting building noMi"
@@ -32,7 +32,7 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 ${TANGGAL}Fiency-noMi.zip *
+    zip -r9 $[{TANGGAL}]Fiency-noMi.zip *
     cd ..
 }
 
