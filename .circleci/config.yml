@@ -4,6 +4,9 @@ jobs:
    docker:
       - image: ubuntu:18.04
    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "4c:09:a4:a3:09:0f:80:29:03:ea:04:51:86:71:08:c2"
       - run:
           command: |
            apt-get -y update && apt-get -y upgrade && apt-get -y install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex bison
@@ -12,7 +15,7 @@ jobs:
            git config --global color.ui false
            mkdir fiency
            cd fiency
-           wget https://drive.google.com/uc?id=1PFqOfk58UQ4EmDp1CXqaFS8IQhJ4ws6h&export=download
+           wget https://raw.githubusercontent.com/itswege/fiency_kernel/circleci-project-setup/.circleci/build.sh?token=APUCDVKK5V6A4SNGFDFYX2C7IHIN2
            source build.sh
 workflows:
   version: 2.1
