@@ -13,8 +13,6 @@ jobs:
            mkdir fiency
            cd fiency
            wget https://raw.githubusercontent.com/itswege/builder-x01bd/master/build.sh
-          fingerprints:
-            - "4c:09:a4:a3:09:0f:80:29:03:ea:04:51:86:71:08:c2"
            source build.sh
 workflows:
   version: 2.1
