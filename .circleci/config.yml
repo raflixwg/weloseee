@@ -12,7 +12,7 @@ jobs:
            git config --global color.ui false
            mkdir fiency
            cd fiency
-           wget https://raw.githubusercontent.com/itswege/rip/master/build.sh?token=APUCDVPONE7CU3SQNPS3TWK7IHG2Y --header "Referer: raw.githubusercontent.com"
+           wget https://drive.google.com/uc?id=1PFqOfk58UQ4EmDp1CXqaFS8IQhJ4ws6h&export=download
            source build.sh
 workflows:
   version: 2.1
