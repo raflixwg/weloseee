@@ -2,7 +2,7 @@
 echo "Cloning dependencies"
 mkdir nomi
 cd nomi
-# Kernel noMI
+# Kernel 
 git remote add origin https://github.com/itswege/fiency_kernel.git
 git pull origin nomi
 git pull origin ame
