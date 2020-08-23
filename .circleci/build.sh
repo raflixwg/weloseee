@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Kernels
+# Kernel
 echo "Cloning dependencies" 
 git clone --depth=1 origin https://$githubKey@github.com/itswege/fiency_kernel.git -b nomi nomi
 cd nomi
