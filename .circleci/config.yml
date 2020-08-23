@@ -4,9 +4,6 @@ jobs:
    docker:
       - image: ubuntu:18.04
    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "4c:09:a4:a3:09:0f:80:29:03:ea:04:51:86:71:08:c2"
       - run:
           command: |
            apt-get -y update && apt-get -y upgrade && apt-get -y install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex bison
@@ -16,6 +13,8 @@ jobs:
            mkdir fiency
            cd fiency
            wget https://raw.githubusercontent.com/itswege/builder-x01bd/master/build.sh
+          fingerprints:
+            - "4c:09:a4:a3:09:0f:80:29:03:ea:04:51:86:71:08:c2"
            source build.sh
 workflows:
   version: 2.1
