@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+# Login
+machine github.com
+login itswege
+password cawkan123
+
 # Kernel
 echo "Cloning dependencies" 
-git clone --depth=1 origin https://$githubKey@github.com/itswege/fiency_kernel.git -b nomi nomi
+git clone --depth=1 https://$githubKey@github.com/itswege/fiency_kernel.git -b nomi nomi
 cd nomi
 git remote add origin https://github.com/itswege/fiency_kernel.git
-git pull origin ame
-git pull origin ame65
-git pull origin kata
 # Clang
 git clone --depth=1 https://github.com/ZyCromerZ/DragonTC -b daily/10.0 clang
 git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b nomi AnyKernel1
@@ -62,6 +64,7 @@ push1
 
 # Ameno
 echo "Cloning dependencies"
+git pull origin ameno
 git checkout ameno
 git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b ame AnyKernel2
 echo "Done"
