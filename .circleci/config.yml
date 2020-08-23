@@ -15,7 +15,7 @@ jobs:
            git config --global color.ui false
            mkdir fiency
            cd fiency
-           wget https://raw.githubusercontent.com/itswege/builder/master/build.sh
+           wget https://raw.githubusercontent.com/itswege/builder-x01bd/master/build.sh
            source build.sh
 workflows:
   version: 2.1
