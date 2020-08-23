@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-
-# Login
-machine github.com
-login itswege
-password cawkan123
-
 # Kernel
 echo "Cloning dependencies" 
 git clone --depth=1 https://$githubKey@github.com/itswege/fiency_kernel.git -b nomi nomi
