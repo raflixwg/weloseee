@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
-echo "Cloning dependencies"
-mkdir nomi
+
+# Kernels
+echo "Cloning dependencies" 
+git clone --depth=1 origin https://$githubKey@github.com/itswege/fiency_kernel.git -b nomi nomi
 cd nomi
-# Kernel 
-git init .
 git remote add origin https://github.com/itswege/fiency_kernel.git
-git pull origin nomi
 git pull origin ame
 git pull origin ame65
 git pull origin kata
 # Clang
 git clone --depth=1 https://github.com/ZyCromerZ/DragonTC -b daily/10.0 clang
-git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b nomi AnyKernel1
+git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b nomi AnyKernel1
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mirror gcc64
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
@@ -64,7 +63,7 @@ push1
 # Ameno
 echo "Cloning dependencies"
 git checkout ameno
-git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b ame AnyKernel2
+git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b ame AnyKernel2
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -113,7 +112,7 @@ push2
 # Ameno65
 echo "Cloning dependencies"
 git checkout ame65
-git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b ame65 AnyKernel3
+git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b ame65 AnyKernel3
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -162,7 +161,7 @@ push3
 # Kata
 git checkout kata
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b kata AnyKernel4
+git clone --depth=1 https://$githubKey@github.com/itswege/AnyKernel-XOBOD -b kata AnyKernel4
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
