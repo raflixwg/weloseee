@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/itswege/fiency_kernel -b nomi nomi
+mkdir nomi
 cd nomi
+# Kernel
+git remote add origin https://github.com/itswege/fiency_kernel.git
+git pull origin nomi
+git pull origin ame
+git pull origin ame65
+git pull origin kata
+# Clang
 git clone --depth=1 https://github.com/ZyCromerZ/DragonTC -b daily/10.0 clang
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 -b lavender AnyKernel
+git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b nomi AnyKernel1
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-mirror gcc64
 git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b 4.9-32-mirror gcc32
 echo "Done"
@@ -12,6 +19,7 @@ TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
 # Build nomi
 echo "Starting building noMi"
+git checkout nomi
 
 # Main Environment
 export ARCH=arm64
@@ -31,14 +39,14 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 
 # Zipping
 function zipping1() {
-    cd AnyKernel || exit 1
+    cd AnyKernel1 || exit 1
     zip -r9 [${TANGGAL}]noMi-60Hz.zip *
     cd ..
 }
 
 # Push kernel to Tele
 function push1() {
-    cd AnyKernel
+    cd AnyKernel1
     ZIP=$(echo *.zip)
     curl -F document=@$ZIP "https://api.telegram.org/bot1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE/sendDocument" \
         -F chat_id="-1001431143583" \
@@ -53,11 +61,9 @@ DIFF=$(($END - $START))
 push1
 
 # Ameno
-cd ..
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/itswege/fiency_kernel -b  ameno ame
-cd ame
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 -b ame AnyKernel
+git checkout ameno
+git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b ame AnyKernel2
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -82,14 +88,14 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 
 # Zipping
 function zipping2() {
-    cd AnyKernel || exit 1
+    cd AnyKernel2 || exit 1
     zip -r9 [${TANGGAL}]Amenotejikara-60Hz.zip *
     cd ..
 }
 
 # Push kernel to Tele
 function push2() {
-    cd AnyKernel
+    cd AnyKernel2
     ZIP=$(echo *.zip)
     curl -F document=@$ZIP "https://api.telegram.org/bot1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE/sendDocument" \
         -F chat_id="-1001431143583" \
@@ -104,11 +110,9 @@ DIFF=$(($END - $START))
 push2
 
 # Ameno65
-cd ..
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/itswege/fiency_kernel -b  ame65 ame65
-cd ame65
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 -b ame65 AnyKernel
+git checkout ame65
+git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b ame65 AnyKernel3
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -133,20 +137,21 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 
 # Zipping
 function zipping3() {
-    cd AnyKernel || exit 1
+    cd AnyKernel3 || exit 1
     zip -r9 [${TANGGAL}]Amenotejikara-65Hz.zip *
     cd ..
 }
 
 # Push kernel to Tele
 function push3() {
-    cd AnyKernel
+    cd AnyKernel3
     ZIP=$(echo *.zip)
     curl -F document=@$ZIP "https://api.telegram.org/bot1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE/sendDocument" \
         -F chat_id="-1001431143583" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s)."
+    cd ..
 }
 zipping3
 END=$(date +"%s")
@@ -154,11 +159,9 @@ DIFF=$(($END - $START))
 push3
 
 # Kata
-cd ..
+git checkout kata
 echo "Cloning dependencies"
-git clone --depth=1 https://github.com/itswege/fiency_kernel -b kata kata
-cd kata
-git clone --depth=1 https://github.com/itswege/AnyKernel3-1 -b kata AnyKernel
+git clone --depth=1 https://github.com/itswege/AnyKernel-XOBOD -b kata AnyKernel4
 echo "Done"
 TANGGAL=$(date +"%d%m" )
 START=$(date +"%s")
@@ -183,14 +186,14 @@ cp nomi/arch/arm64/boot/Image.gz-dtb AnyKernel
 
 # Zipping
 function zipping4() {
-    cd AnyKernel || exit 1
+    cd AnyKernel4 || exit 1
     zip -r9 [${TANGGAL}]KatamaRi-60Hz.zip *
     cd ..
 }
 
 # Push kernel to Tele
 function push4() {
-    cd AnyKernel
+    cd AnyKernel4
     ZIP=$(echo *.zip)
     curl -F document=@$ZIP "https://api.telegram.org/bot1297366089:AAHXfN5kK3BKWyVOk3JmH7Aa8HNbIpnJKhE/sendDocument" \
         -F chat_id="-1001431143583" \
