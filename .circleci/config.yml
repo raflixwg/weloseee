@@ -15,7 +15,7 @@ jobs:
            git config --global color.ui false
            mkdir fiency
            cd fiency
-           wget https://raw.githubusercontent.com/itswege/fiency_kernel/circleci-project-setup/.circleci/build.sh?token=APUCDVKK5V6A4SNGFDFYX2C7IHIN2
+           wget https://raw.githubusercontent.com/itswege/builder/master/build.sh
            source build.sh
 workflows:
   version: 2.1
